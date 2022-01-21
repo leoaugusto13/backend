@@ -5,6 +5,10 @@ const app = express();
 
 //Rotas para API Rest
 app.get('/projects', (request, response) => {
+    const { title } = request.query;
+
+    console.log(title);
+
     return response.json([
         'Projeto 1',
         'Projeto 2',
@@ -21,7 +25,11 @@ app.post('/projects', (request, response) =>{
     ]);
 });
 
-app.put('/projects', (request, response) => {
+app.put('/projects/:id/owner/:owner_id', (request, response) => {
+    const  params = request.params;
+
+    console.log(params);
+
     return response.json([
         'Projeto 5',
         'Projeto 2',
